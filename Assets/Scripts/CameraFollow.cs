@@ -1,0 +1,18 @@
+using UnityEngine;
+
+public class CameraFollow : MonoBehaviour
+{
+    public Transform Target;
+
+    /// <summary>
+    /// Update is called once per frame
+    /// </summary>
+    void Update()
+    {
+        transform.position = new Vector3(
+            Target.transform.position.x,
+            Target.transform.position.y,
+            transform.position.z);
+
+    }
+}
