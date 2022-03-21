@@ -20,11 +20,21 @@ public class Player_Movement : MonoBehaviour
         float inputX = Input.GetAxis("Horizontal");
         float inputY = Input.GetAxis("Vertical");
 
+            print(inputX);
 
         Vector3 desiredVelocity = inputX * transform.right + inputY * transform.forward;
 
         velocidade = new Vector2(inputX*speed, inputY*speed);
         rb.MovePosition(rb.position + velocidade * Time.fixedDeltaTime);
+
+        if  (inputX > 0)
+        {
+            transform.localScale = new Vector3(5f,5f,1f);
+        }
+        if  (inputX < 0)
+        {
+            transform.localScale = new Vector3(-5f,5f,1f);
+        }
 
     }
 }
