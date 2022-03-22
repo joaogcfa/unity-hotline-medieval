@@ -20,7 +20,6 @@ public class Player_Movement : MonoBehaviour
         float inputX = Input.GetAxis("Horizontal");
         float inputY = Input.GetAxis("Vertical");
 
-            print(inputX);
 
         Vector3 desiredVelocity = inputX * transform.right + inputY * transform.forward;
 
