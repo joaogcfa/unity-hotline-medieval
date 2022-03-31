@@ -4,8 +4,19 @@ using UnityEngine;
 
 public class bullet : MonoBehaviour
 {
+    public GameObject Player;
+
+    void Start(){
+        Player = GameObject.Find("MainCharacter");
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(gameObject);
-    }    
+        if(collision.gameObject.layer == Player.layer){
+            ;
+        }
+        else{
+            Destroy(gameObject);
+        }
+    }
 }

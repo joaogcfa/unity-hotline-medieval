@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - hitBox
+  - Bullet
+  - Music
   layers:
   - Default
   - TransparentFX
@@ -12,8 +15,8 @@ TagManager:
   - Water
   - UI
   - Obstacle
-  - 
-  - 
+  - Player
+  - Bullet
   - 
   - 
   - 
@@ -41,9 +44,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Chao
+    uniqueID: 2036475197
+    locked: 0
   - name: BG
     uniqueID: 3651877515
     locked: 0
   - name: FG
     uniqueID: 4182176611
+    locked: 0
+  - name: Decorativo
+    uniqueID: 3889541059
     locked: 0

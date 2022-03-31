@@ -7,11 +7,13 @@ public class Player_Movement : MonoBehaviour
     public Rigidbody2D rb;
     public Vector2 velocidade;
     public float speed = 10.0f;
+    public Animator playerAnimator;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -23,17 +25,26 @@ public class Player_Movement : MonoBehaviour
 
         Vector3 desiredVelocity = inputX * transform.right + inputY * transform.forward;
 
-        velocidade = new Vector2(inputX*speed, inputY*speed);
+        velocidade = new Vector2(inputX * speed, inputY * speed);
         rb.MovePosition(rb.position + velocidade * Time.fixedDeltaTime);
 
-        if  (inputX > 0)
+        if (inputX > 0)
         {
-            transform.localScale = new Vector3(5f,5f,1f);
+            transform.localScale = new Vector3(5f, 5f, 1f);
+            playerAnimator.SetTrigger("Running");
         }
-        if  (inputX < 0)
+        else if (inputX < 0)
         {
-            transform.localScale = new Vector3(-5f,5f,1f);
+            transform.localScale = new Vector3(-5f, 5f, 1f);
+            playerAnimator.SetTrigger("Running");
         }
-
+        else if (inputY < 0 || inputY > 0)
+        {
+            playerAnimator.SetTrigger("Running");
+        }
+        else
+        {
+            playerAnimator.SetBool("Running", false);
+        }
     }
 }
